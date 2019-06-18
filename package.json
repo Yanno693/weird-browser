@@ -1,0 +1,26 @@
+{
+  "name": "test-electron",
+  "version": "1.0.0",
+  "description": "A simple electron desktop app",
+  "main": "app.js",
+  "scripts": {
+    "test": "electron .",
+    "start": "npm run test",
+    "build": "webpack",
+    "watch": "webpack -w"
+  },
+  "author": "Yanno693",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^3.0.0",
+    "custom-electron-titlebar": "^3.0.8",
+    "electron": "^5.0.4",
+    "fs": "0.0.1-security",
+    "jquery": "^3.4.1",
+    "materialize-css": "^1.0.0-rc.2",
+    "style-loader": "^0.23.1",
+    "valid-url": "^1.0.9",
+    "webpack": "^4.34.0",
+    "webpack-cli": "^3.3.4"
+  }
+}
