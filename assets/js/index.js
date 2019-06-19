@@ -51,15 +51,15 @@ function createWindowURL(url = "http://www.youtube.fr")
 
     //win.loa
     
-    win.loadFile("./public/index.html");
-    // .then( () => {
-    //     win.loadURL(url)
-    //     .catch( () => 
-    //     {
-    //         console.log("il y a clairement un truc qui ne va pas");
-    //         win.loadFile("./public/index.html");
-    //     });
-    // });
+    win.loadFile("./public/loading.html")
+    .then( () => {
+        win.loadURL(url)
+        .catch( () => 
+        {
+            console.log("il y a clairement un truc qui ne va pas");
+            win.loadFile("./public/index.html");
+        });
+    });
 
 }
 /*window.Bundle = Bundle;*/
