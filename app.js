@@ -17,8 +17,8 @@ function createWindow()
         }
     });
 
-    //win.loadFile("public/loading.html")
-    win.loadFile("public/index.html")
+    win.loadFile("public/loading.html")
+    //win.loadFile("public/index.html")
     .then(function(){
         console.log("chargement reussi je crois");
     })
