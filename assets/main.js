@@ -5,7 +5,7 @@ const $ = require('jquery');
 window.$ = $;
 
 import '../assets/js/index.js';
-import '../assets/css/index.css';
+import '../assets/css/index.scss';
 
 /*const ctb = require('custom-electron-titlebar');
 

@@ -1,0 +1,82 @@
+/*body, html{
+    background-color: burlywood;
+}*/
+
+/* label color */
+
+$primary-color: #01579b;
+$accent-color: #00b0ff;
+
+.nav-wrapper .input-field {
+
+    .label-icon {
+        color: $primary-color;
+    }
+
+    input[type=search] {
+        border-bottom: 1px solid black;
+        color: white;
+        width: calc(100% - 8rem);
+        padding-right: 4rem;
+
+        &:focus:not(.browser-default) {
+            color: #00b0ff;
+            background-color: rgba(0.5,0.5,0.5,0.5);
+            border-radius: 90px;
+            border: solid black 0.5px;
+
+            &::placeholder {
+                color: $primary-color;
+            }
+
+            + label i {
+                color: $primary-color;
+            }
+
+        }
+
+        &:not(.browser-default) {
+            //color: black;
+            background-color: transparent;
+            border-radius: 90px;
+            border: solid black 0.5px;
+
+            &::placeholder {
+                color: black;
+            }
+
+            + label i {
+                color: black;
+            }
+        }
+    }
+}
+
+.divider
+{
+    &.divider-margin
+    {
+        margin-bottom: 1rem;
+    }
+}
+.pill {
+    border-radius: 90px;
+    border: solid black 0.5px;
+}
+
+/* Couleur du placeholder quand click */
+.input-field input[type=search]:focus:not(.browser-default) ~ .material-icons
+{
+    color: $primary-color;
+}
+
+/* Couleur du placeholder quand click */
+.input-field input[type=search]:not(.browser-default) ~ .material-icons
+{
+    color: black;
+}
+
+input[type=search] {
+    background-color: red;
+    font-size: 100px;
+}

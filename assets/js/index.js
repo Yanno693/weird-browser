@@ -3,20 +3,14 @@ const url = require('url');
 const valid_url = require('valid-url');
 const remote = require('electron').remote;
 
-$('#p').text("jaja");
-$('#p').bind("click", function(){ console.log("salut");})
+//$('#p').text("jaja");
+//$('#p').bind("click", function(){ console.log("salut");})
 
 
 $('#searchInput').bind("keydown", function(e){
     if(e.keyCode == 13) // Press enter
     //if(e.key == "Enter")
     {
-        //console.log($('#searchInput').val());
-
-        //createWindowURL($('#searchInput').val());
-
-
-
         if(valid_url.isWebUri($('#searchInput').val())) // window with uri
         {
             createWindowURL($('#searchInput').val());
@@ -27,14 +21,6 @@ $('#searchInput').bind("keydown", function(e){
         }
     }
 });
-
-/*export class Bundle
-{
-    mylog()
-    {
-        console.log("mylog");
-    }
-};*/
 
 function validUrl(url)
 {
