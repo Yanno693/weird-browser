@@ -1,0 +1,28 @@
+@import "variables.scss";
+
+.titlebar-container {
+
+    width: 100%;
+    height: 40px;
+    z-index: 100;
+    position: fixed;
+
+    .material-icons {
+        color: $accent-color;
+        //font-size: 1.2em;
+        text-shadow: 0 0 10px $primary-color;
+        margin-left: 1em;
+        -webkit-user-select: none;
+
+        &:hover {
+            color: $very-accent-color;
+            text-shadow: 0 0 10px $accent-color,
+        }
+
+        // Conflict between :hover and -webkit-app-region ? :(
+        &.drageable {
+            -webkit-app-region: drag;
+            z-index: 100;
+        }
+    }
+}

@@ -6,9 +6,6 @@ function createWindow()
     let win = new BrowserWindow({
         width: 600,
         height: 600,
-        //darkTheme: true,
-        //frame: false,
-        //transparent: true,
         backgroundColor: "#263238",
         title: "L'internet comme ca",
         //titleBarStyle: 'hidden',
@@ -17,7 +14,7 @@ function createWindow()
         }
     });
 
-    //win.loadFile("public/loading.html")
+    //win.loadFile("public/browser.html")
     win.loadFile("public/index.html")
     .then(function(){
         console.log("chargement reussi je crois");

@@ -1,47 +1,37 @@
 const $ = require('jquery');
-const url = require('url');
 const valid_url = require('valid-url');
 const remote = require('electron').remote;
 
-//$('#p').text("jaja");
-//$('#p').bind("click", function(){ console.log("salut");})
-
+const init_width = 500;
+const init_height = 500;
 
 $('#searchInput').bind("keydown", function(e){
     if(e.keyCode == 13) // Press enter
     //if(e.key == "Enter")
     {
-        if(valid_url.isWebUri($('#searchInput').val())) // window with uri
+        if($('#searchInput').val().replace(/ /g,'') != '')
         {
-            createWindowURL($('#searchInput').val());
-        }
-        else
-        {
-            console.log("URL Invalide");
+            if(valid_url.isWebUri($('#searchInput').val())) // window with uri
+            {
+                createWindowURL($('#searchInput').val());
+            }
+            else // Window with google search result
+            {
+                createWindowGoogleSearch($('#searchInput').val())
+            }
         }
     }
 });
 
-function validUrl(url)
-{
-    var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
-    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|'+ // domain name
-    '((\\d{1,3}\\.){3}\\d{1,3}))'+ // ip (v4) address
-    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ //port
-    '(\\?[;&amp;a-z\\d%_.~+=-]*)?'+ // query string
-    '(\\#[-a-z\\d_]*)?$','i');
-    return pattern.test(url);
-}
-
-function createWindowURL(url = "http://www.youtube.fr")
+function createWindowURL(url = "https://www.youtube.com")
 {
     let win = new remote.BrowserWindow({
-        width: 600,
-        height: 600,
+        width: init_width,
+        height: init_height,
         darkTheme: true,
-        backgroundColor: "#263238",
-        //frame: false,
-        //transparent: true,
+        //backgroundColor: "#263238",
+        frame: false,
+        transparent: true,
         title: "L'internet comme ca",
         //titleBarStyle: 'hidden',
         webPreferences: {
@@ -49,11 +39,17 @@ function createWindowURL(url = "http://www.youtube.fr")
         }
     });
 
-    //win.loa
+    let view = new remote.BrowserView();
+    view.setBounds({ x: 0, y: 40, width: init_width, height: init_height - 40})
+    view.setAutoResize({width: true, height: true});
+    win.setBrowserView(view);
     
-    win.loadFile("./public/loading.html")
+    win.loadFile("./public/browser.html")
     .then( () => {
-        win.loadURL(url)
+        view.webContents.loadURL(url)
+        .then( () => {
+            //win.setBackgroundColor("#FF00FF");
+        })
         .catch( () => 
         {
             console.log("il y a clairement un truc qui ne va pas");
@@ -61,53 +57,40 @@ function createWindowURL(url = "http://www.youtube.fr")
         });
     });
 
-}
-/*window.Bundle = Bundle;*/
+    win.once('ready-to-show', () => {
+        win.show()
+      })
 
-/*let n = 0;
-
-
-function mylog()
-{
-    console.log("mylog");
 }
 
-window.mylog = mylog;
-
-exports.keyboardEvent = (a) => 
+function createWindowGoogleSearch(search)
 {
-    n++;
-    //document.getElementById('p').innerHTML = n;
-    $("p").text(n);
-    console.log("press");
+    let encodedSearch = encodeURIComponent(search);
+    let googleQuery = encodedSearch.replace(/%20/g,'+');
+
+    let win = new remote.BrowserWindow({
+        width: init_width,
+        height: init_height,
+        darkTheme: true,
+        //backgroundColor: "#263238",
+        frame: false,
+        transparent: true,
+        title: "L'internet comme ca",
+        //titleBarStyle: 'hidden',
+        webPreferences: {
+            nodeIntegration: true
+        }
+    });
+
+    win.once('ready-to-show', () => {
+        win.show()
+      })
+
+    win.loadFile("./public/browser.html");
     
-    //console.log(e);
-    //$("p").text("jaja");
+    let view = new remote.BrowserView();
+    view.setBounds({ x: 0, y: 40, width: init_width, height: init_height - 40})
+    view.setAutoResize({width: true, height: true});
+    win.setBrowserView(view);
+    view.webContents.loadURL("https://www.google.com/search?q=" + googleQuery)
 }
-
-/*export function k(a)
-{
-    n++;
-    //document.getElementById('p').innerHTML = n;
-    $("p").text(n);
-    console.log("press");
-    
-    //createWindowURL();
-}
-
-export function f(a)
-{
-    n++;
-    //document.getElementById('p').innerHTML = n;
-    $("p").text(n);
-    console.log("press");
-    
-    //console.log(e);
-    //$("p").text("jaja");
-}*/
-
-/*new CTB.Titlebar({
-    backgroundColor: CTB.Color.RED
-});*/
-
-//window.f = f;*/
