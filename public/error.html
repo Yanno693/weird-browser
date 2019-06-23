@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
-    <body>
+    <body class="error">
         <div class="titlebar-container">
             <div class="row valign-wrapper" style="height: 100%">
                 <div class="col s3 left-align">
@@ -16,27 +16,20 @@
                 </div>
             </div>
         </div>
-        <div class="valign-wrapper container" style="height: 100%; width: 100%;">
+        <div class="valign-wrapper" style="height: 100%; width: 100%;">
             <div class="container">
                 <div class="row">
                     <div class="col s12 center">
-                        <div class="preloader-wrapper big active">
-                            <div class="spinner-layer spinner-blue-only">
-                                <div class="circle-clipper left">
-                                <div class="circle"></div>
-                                </div><div class="gap-patch">
-                                <div class="circle"></div>
-                                </div><div class="circle-clipper right">
-                                <div class="circle"></div>
-                                </div>
-                            </div>
-                        </div>
+                        <h1 class="text-secondary">
+                            <i class="material-icons big" style="font-size: 8rem">error</i>
+                        </h1>
+                        <p class="text-white">
+                            An error occured during the page loading
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="corner-left">&#9486;</div>
-        <div class="corner-right">&#9490;</div>
         <script src="build/bundle.js"></script>
     </body>
 </html>
