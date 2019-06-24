@@ -16,6 +16,7 @@
     "css-loader": "^3.0.0",
     "custom-electron-titlebar": "^3.0.8",
     "electron": "^5.0.4",
+    "file-loader": "^4.0.0",
     "fs": "0.0.1-security",
     "jquery": "^3.4.1",
     "materialize-css": "^1.0.0-rc.2",

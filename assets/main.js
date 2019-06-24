@@ -10,3 +10,6 @@ import '../assets/js/browser.js';
 import '../assets/css/variables.scss';
 import '../assets/css/index.scss';
 import '../assets/css/browser.scss';
+
+import '../assets/img/corner-left.png';
+import '../assets/img/corner-right.png';

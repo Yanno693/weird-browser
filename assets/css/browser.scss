@@ -28,19 +28,17 @@
 }
 
 .corner-left {
-    color: $accent-color;
-    text-shadow: 0 0 10px $primary-color;
     position: fixed;
-    top: -10px;
-    left: -6px;
+    top: 0;
+    left: 0;
     -webkit-user-select: none;
+    width: 10px;
 }
 
 .corner-right {
-    color: $accent-color;
-    text-shadow: 0 0 10px $primary-color;
     position: fixed;
-    top: -10px;
-    right: -6px;
+    top: 0;
+    right: 0;
     -webkit-user-select: none;
+    width: 10px;
 }

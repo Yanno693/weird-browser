@@ -9,26 +9,31 @@ module.exports = {
     libraryTarget: 'var',
     library: 'Bundle'
   },
-    module: {
-        rules: [
-            {
-                test: /\.css$/,
-                use: ['style-loader','css-loader' ]
-            },
-            {
-              test: /\.scss$/,
-              loader: ['style-loader', 'css-loader', 'sass-loader']
-            }
+  module: {
+    rules: [{
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.scss$/,
+        loader: ['style-loader', 'css-loader', 'sass-loader']
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+          'file-loader'
         ]
-   },
-   target: 'node',
-   "externals": {
+      }
+    ]
+  },
+  target: 'node',
+  "externals": {
     "electron": "require('electron')",
     "child_process": "require('child_process')",
     "fs": "require('fs')",
     "path": "require('path')"
-    }
-   /*node: {
-    fs: "empty"
-    }*/
+  }
+  /*node: {
+   fs: "empty"
+   }*/
 };
