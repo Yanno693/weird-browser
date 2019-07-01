@@ -1,4 +1,4 @@
-# Slice browser
+# Slice browser (this is a temporary name)
 
 This is some sort of web-browser that allows you to open small floating web tabs on your desktop.
 
