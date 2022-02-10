@@ -20,7 +20,7 @@
     "fs": "0.0.1-security",
     "jquery": "^3.5.0",
     "materialize-css": "^1.0.0-rc.2",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
